@@ -16,4 +16,9 @@ export default defineConfig({
       '/api': 'http://localhost:8080',
     },
   },
+  preview: {
+    allowedHosts: ['localtreasure.onrender.com'],
+    host: '0.0.0.0',  // keep this to listen on all interfaces
+    port: process.env.PORT ? Number(process.env.PORT) : 4173,
+  },
 })
