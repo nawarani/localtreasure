@@ -36,7 +36,7 @@ const EditProfile = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`/api/users/${user.id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

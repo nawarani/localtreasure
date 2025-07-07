@@ -27,11 +27,11 @@ function MapView() {
     const fetchMapData = async () => {
       try {
         // Get map locations (coordinates from map table)
-        const locationsResponse = await fetch('/api/locations');
+        const locationsResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/locations`);
         const locationsData = await locationsResponse.json();
 
         // Get all events (for details to show in popups)
-        const eventsResponse = await fetch('/api/user-events/allEvents');
+        const eventsResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/user-events/allEvents`);
         const eventsData = await eventsResponse.json();
 
         setLocations(locationsData);

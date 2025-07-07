@@ -7,10 +7,11 @@ const HomeRoute = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const { token } = useAuth();
 
   const fetchSales = () => {
-    fetch("http://localhost:8080/api/sales/allSales", {
+    fetch(`${API_BASE_URL}/api/sales/allSales`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -34,7 +35,7 @@ const HomeRoute = () => {
   }
 
   const fetchEvents = () => {
-    fetch("http://localhost:8080/api/user-events/allEvents", {
+    fetch(`${API_BASE_URL}/api/user-events/allEvents`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

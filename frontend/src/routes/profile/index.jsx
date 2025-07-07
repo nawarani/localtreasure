@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ExpandableCardDemo from "../../components/ExpandableCardDemo"
 import { useAuth } from "../../contexts/AuthContext";
 const ProfileRoute = ({}) => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
 
     const { user, token } = useAuth();
     
@@ -11,7 +12,7 @@ const ProfileRoute = ({}) => {
 
     const fetchSales = async () => {
             try{
-                const response = await fetch(`http://localhost:8080/api/sales/sales?user=${user.id}`,{
+                const response = await fetch(`${API_BASE_URL}/api/sales/sales?user=${user.id}`,{
                     method:'GET',
                     headers:{
                         'Authorization': `Bearer ${token}`
@@ -33,7 +34,7 @@ const ProfileRoute = ({}) => {
 
         const fetchEvents = async() => {
             try{
-                const response = await fetch(`http://localhost:8080/api/user-events?user=${user.id}`,{
+                const response = await fetch(`${API_BASE_URL}/api/user-events?user=${user.id}`,{
                     method:'GET',
                     headers:{
                         'Authorization': `Bearer ${token}`
